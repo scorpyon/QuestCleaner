@@ -1,0 +1,42 @@
+﻿<mah:MetroWindow x:Class="BotClean.View.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Quest Thread Cleaner" Height="240" Width="340"
+        MaxHeight="240" MinHeight="240"
+        MaxWidth="340" MinWidth="340"
+        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        UseLayoutRounding="True"
+        WindowStartupLocation="CenterScreen"
+        xmlns:model="clr-namespace:BotClean.ViewModel"
+        d:DataContext="{d:DesignInstance model:MainViewModel}"
+        ShowMinButton="False"
+        ShowMaxRestoreButton="False">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" Text="To use admin powers, you will need to first log in to the new open browser with the HearthPWN site loaded." Margin="8" HorizontalAlignment="Center" TextWrapping="WrapWithOverflow"/>
+        <TextBlock Grid.Row="1" Text="To clean up the thread, first generate a ban list with the Populate Ban List button. Then set the number of pages (from the end) to clean and hit the Clean Thread button!" Margin="8" HorizontalAlignment="Center" TextWrapping="WrapWithOverflow"/>
+        <UniformGrid Grid.Row="2" Columns="2" Margin="8">
+            <TextBlock Text="Pages to Clean:" Margin="8" HorizontalAlignment="Right"/>
+            <TextBox Name="PageCount" Margin="8,4,0,0" VerticalAlignment="Top" Height="Auto" Text="1"/>
+        </UniformGrid>
+        <UniformGrid Grid.Row="3"  Columns="2">
+            <Button Height="35" HorizontalAlignment="Right" Content="Populate Ban List" Command="{Binding BanListCommand}" MinWidth="160"/>
+            <Button Height="35" HorizontalAlignment="Left" Content="Clean Thread" Command="{Binding CleanThreadCommand}" CommandParameter="{Binding ElementName=PageCount, Path=Text}" MinWidth="160"/>
+        </UniformGrid>
+    </Grid>
+</mah:MetroWindow>

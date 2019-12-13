@@ -1,0 +1,76 @@
+C:\DEV\WPF PROJECTS\BOT_CLEAN\BotClean\bin\Debug\BotClean.exe.config
+C:\DEV\WPF PROJECTS\BOT_CLEAN\BotClean\bin\Debug\BotClean.exe
+C:\DEV\WPF PROJECTS\BOT_CLEAN\BotClean\bin\Debug\BotClean.pdb
+C:\DEV\WPF PROJECTS\BOT_CLEAN\BotClean\obj\Debug\App.g.cs
+C:\DEV\WPF PROJECTS\BOT_CLEAN\BotClean\obj\Debug\BotClean_MarkupCompile.cache
+C:\DEV\WPF PROJECTS\BOT_CLEAN\BotClean\obj\Debug\BotClean.g.resources
+C:\DEV\WPF PROJECTS\BOT_CLEAN\BotClean\obj\Debug\BotClean.Properties.Resources.resources
+C:\DEV\WPF PROJECTS\BOT_CLEAN\BotClean\obj\Debug\BotClean.csproj.GenerateResource.cache
+C:\DEV\WPF PROJECTS\BOT_CLEAN\BotClean\obj\Debug\BotClean.csproj.CoreCompileInputs.cache
+C:\DEV\WPF PROJECTS\BOT_CLEAN\BotClean\obj\Debug\BotClean.exe
+C:\DEV\WPF PROJECTS\BOT_CLEAN\BotClean\obj\Debug\BotClean.pdb
+C:\DEV\WPF PROJECTS\BOT_CLEAN\BotClean\bin\Debug\ControlzEx.dll
+C:\DEV\WPF PROJECTS\BOT_CLEAN\BotClean\bin\Debug\MahApps.Metro.dll
+C:\DEV\WPF PROJECTS\BOT_CLEAN\BotClean\bin\Debug\MaterialDesignThemes.Wpf.dll
+C:\DEV\WPF PROJECTS\BOT_CLEAN\BotClean\bin\Debug\System.Windows.Interactivity.dll
+C:\DEV\WPF PROJECTS\BOT_CLEAN\BotClean\bin\Debug\ControlzEx.pdb
+C:\DEV\WPF PROJECTS\BOT_CLEAN\BotClean\bin\Debug\MahApps.Metro.pdb
+C:\DEV\WPF PROJECTS\BOT_CLEAN\BotClean\bin\Debug\MahApps.Metro.xml
+C:\DEV\WPF PROJECTS\BOT_CLEAN\BotClean\bin\Debug\MaterialDesignThemes.Wpf.pdb
+C:\DEV\WPF PROJECTS\BOT_CLEAN\BotClean\bin\Debug\MaterialDesignThemes.Wpf.xml
+C:\DEV\WPF PROJECTS\BOT_CLEAN\BotClean\obj\Debug\App.baml
+C:\DEV\WPF PROJECTS\BOT_CLEAN\BotClean\obj\Debug\BotClean.csproj.CopyComplete
+C:\DEV\WPF PROJECTS\BOT_CLEAN\BotClean\bin\Debug\MaterialDesignColors.dll
+C:\DEV\WPF PROJECTS\BOT_CLEAN\BotClean\bin\Debug\MaterialDesignColors.pdb
+C:\DEV\WPF PROJECTS\BOT_CLEAN\BotClean\obj\Debug\BotClean_MarkupCompile.lref
+C:\DEV\WPF PROJECTS\BOT_CLEAN\BotClean\obj\Debug\View\MainWindow.g.cs
+C:\DEV\WPF PROJECTS\BOT_CLEAN\BotClean\obj\Debug\View\MainWindow.baml
+C:\DEV\WPF PROJECTS\BOT_CLEAN\BotClean\bin\Debug\NUnit3.TestAdapter.dll
+C:\DEV\WPF PROJECTS\BOT_CLEAN\BotClean\bin\Debug\NUnit3.TestAdapter.pdb
+C:\DEV\WPF PROJECTS\BOT_CLEAN\BotClean\bin\Debug\nunit.engine.dll
+C:\DEV\WPF PROJECTS\BOT_CLEAN\BotClean\bin\Debug\nunit.engine.api.dll
+C:\DEV\WPF PROJECTS\BOT_CLEAN\BotClean\bin\Debug\nunit.framework.dll
+C:\DEV\WPF PROJECTS\BOT_CLEAN\BotClean\bin\Debug\WebDriver.dll
+C:\DEV\WPF PROJECTS\BOT_CLEAN\BotClean\bin\Debug\nunit.framework.pdb
+C:\DEV\WPF PROJECTS\BOT_CLEAN\BotClean\bin\Debug\nunit.framework.xml
+C:\DEV\WPF PROJECTS\BOT_CLEAN\BotClean\bin\Debug\WebDriver.xml
+C:\DEV\WPF PROJECTS\BOT_CLEAN\BotClean\obj\Debug\BotClean.csprojAssemblyReference.cache
+C:\DEV\WPF PROJECTS\BOT_CLEAN\BotClean\obj\Debug\BotClean_Content.g.cs
+G:\Hearthstone\BOT_CLEAN\BotClean\bin\Debug\NUnit3.TestAdapter.dll
+G:\Hearthstone\BOT_CLEAN\BotClean\bin\Debug\NUnit3.TestAdapter.pdb
+G:\Hearthstone\BOT_CLEAN\BotClean\bin\Debug\nunit.engine.dll
+G:\Hearthstone\BOT_CLEAN\BotClean\bin\Debug\nunit.engine.api.dll
+G:\Hearthstone\BOT_CLEAN\BotClean\bin\Debug\BotClean.exe.config
+G:\Hearthstone\BOT_CLEAN\BotClean\bin\Debug\BotClean.exe
+G:\Hearthstone\BOT_CLEAN\BotClean\bin\Debug\BotClean.pdb
+G:\Hearthstone\BOT_CLEAN\BotClean\bin\Debug\ControlzEx.dll
+G:\Hearthstone\BOT_CLEAN\BotClean\bin\Debug\MahApps.Metro.dll
+G:\Hearthstone\BOT_CLEAN\BotClean\bin\Debug\MaterialDesignColors.dll
+G:\Hearthstone\BOT_CLEAN\BotClean\bin\Debug\MaterialDesignThemes.Wpf.dll
+G:\Hearthstone\BOT_CLEAN\BotClean\bin\Debug\nunit.framework.dll
+G:\Hearthstone\BOT_CLEAN\BotClean\bin\Debug\System.Windows.Interactivity.dll
+G:\Hearthstone\BOT_CLEAN\BotClean\bin\Debug\WebDriver.dll
+G:\Hearthstone\BOT_CLEAN\BotClean\bin\Debug\ControlzEx.pdb
+G:\Hearthstone\BOT_CLEAN\BotClean\bin\Debug\MahApps.Metro.pdb
+G:\Hearthstone\BOT_CLEAN\BotClean\bin\Debug\MahApps.Metro.xml
+G:\Hearthstone\BOT_CLEAN\BotClean\bin\Debug\MaterialDesignColors.pdb
+G:\Hearthstone\BOT_CLEAN\BotClean\bin\Debug\MaterialDesignThemes.Wpf.pdb
+G:\Hearthstone\BOT_CLEAN\BotClean\bin\Debug\MaterialDesignThemes.Wpf.xml
+G:\Hearthstone\BOT_CLEAN\BotClean\bin\Debug\nunit.framework.pdb
+G:\Hearthstone\BOT_CLEAN\BotClean\bin\Debug\nunit.framework.xml
+G:\Hearthstone\BOT_CLEAN\BotClean\bin\Debug\WebDriver.xml
+G:\Hearthstone\BOT_CLEAN\BotClean\obj\Debug\BotClean.csprojAssemblyReference.cache
+G:\Hearthstone\BOT_CLEAN\BotClean\obj\Debug\App.baml
+G:\Hearthstone\BOT_CLEAN\BotClean\obj\Debug\View\MainWindow.g.cs
+G:\Hearthstone\BOT_CLEAN\BotClean\obj\Debug\App.g.cs
+G:\Hearthstone\BOT_CLEAN\BotClean\obj\Debug\BotClean_Content.g.cs
+G:\Hearthstone\BOT_CLEAN\BotClean\obj\Debug\BotClean_MarkupCompile.cache
+G:\Hearthstone\BOT_CLEAN\BotClean\obj\Debug\BotClean_MarkupCompile.lref
+G:\Hearthstone\BOT_CLEAN\BotClean\obj\Debug\View\MainWindow.baml
+G:\Hearthstone\BOT_CLEAN\BotClean\obj\Debug\BotClean.g.resources
+G:\Hearthstone\BOT_CLEAN\BotClean\obj\Debug\BotClean.Properties.Resources.resources
+G:\Hearthstone\BOT_CLEAN\BotClean\obj\Debug\BotClean.csproj.GenerateResource.cache
+G:\Hearthstone\BOT_CLEAN\BotClean\obj\Debug\BotClean.csproj.CoreCompileInputs.cache
+G:\Hearthstone\BOT_CLEAN\BotClean\obj\Debug\BotClean.csproj.CopyComplete
+G:\Hearthstone\BOT_CLEAN\BotClean\obj\Debug\BotClean.exe
+G:\Hearthstone\BOT_CLEAN\BotClean\obj\Debug\BotClean.pdb
