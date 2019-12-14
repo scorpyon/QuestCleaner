@@ -4,9 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="Quest Thread Cleaner" Height="240" Width="340"
-        MaxHeight="240" MinHeight="240"
-        MaxWidth="340" MinWidth="340"
+        Title="Quest Thread Helper v2.0" Height="340" Width="Auto"
+        MinHeight="340" MinWidth="740"
         xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
@@ -28,15 +27,22 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <TextBlock Grid.Row="0" Text="To use admin powers, you will need to first log in to the new open browser with the HearthPWN site loaded." Margin="8" HorizontalAlignment="Center" TextWrapping="WrapWithOverflow"/>
-        <TextBlock Grid.Row="1" Text="To clean up the thread, first generate a ban list with the Populate Ban List button. Then set the number of pages (from the end) to clean and hit the Clean Thread button!" Margin="8" HorizontalAlignment="Center" TextWrapping="WrapWithOverflow"/>
-        <UniformGrid Grid.Row="2" Columns="2" Margin="8">
-            <TextBlock Text="Pages to Clean:" Margin="8" HorizontalAlignment="Right"/>
-            <TextBox Name="PageCount" Margin="8,4,0,0" VerticalAlignment="Top" Height="Auto" Text="1"/>
-        </UniformGrid>
-        <UniformGrid Grid.Row="3"  Columns="2">
+        <TextBlock Grid.Row="0" Text="To check the quest thread, first generate a ban list with the Populate Ban List button. Then set the number of pages (from the end) to search and hit the Search Thread button." Margin="8" HorizontalAlignment="Center" TextWrapping="WrapWithOverflow"/>
+        <UniformGrid Grid.Row="2"  Columns="3">
             <Button Height="35" HorizontalAlignment="Right" Content="Populate Ban List" Command="{Binding BanListCommand}" MinWidth="160"/>
-            <Button Height="35" HorizontalAlignment="Left" Content="Clean Thread" Command="{Binding CleanThreadCommand}" CommandParameter="{Binding ElementName=PageCount, Path=Text}" MinWidth="160"/>
+            <UniformGrid Grid.Row="1" Columns="2" Margin="8">
+                <TextBlock Text="Pages to search:" Margin="8" HorizontalAlignment="Right"/>
+                <TextBox Name="PageCount" Margin="8,4,0,0" VerticalAlignment="Top" Height="Auto" Text="1"/>
+            </UniformGrid>
+            <Button Height="35" HorizontalAlignment="Left" Content="Search Thread" Command="{Binding CleanThreadCommand}" CommandParameter="{Binding ElementName=PageCount, Path=Text}" MinWidth="160"/>
         </UniformGrid>
+        <DataGrid Grid.Row="3" ItemsSource="{Binding Posts}" AutoGenerateColumns="False" MouseLeftButtonUp="DataGrid_MouseLeftButtonUp">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Username" Binding="{Binding Name, Mode=OneWay}" MaxWidth="150" FontWeight="Bold"/>
+                <DataGridTextColumn Header="User Link" Binding="{Binding NameLink, Mode=OneWay}" MaxWidth="400" FontWeight="Light" Foreground="Aqua"/>
+                <DataGridTextColumn Header="Post" Binding="{Binding PostText, Mode=OneWay}" MaxWidth="350"/>
+                <DataGridTextColumn Header="Post Link" Binding="{Binding PostLink, Mode=OneWay}" MaxWidth="400" FontWeight="Light" Foreground="Aqua"/>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </mah:MetroWindow>

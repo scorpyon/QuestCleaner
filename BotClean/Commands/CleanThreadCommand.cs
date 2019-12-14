@@ -1,13 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
-using System.Threading;
 using BotClean.ViewModel;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
-using OpenQA.Selenium.Remote;
 
 namespace BotClean.Commands
 {
@@ -16,28 +14,25 @@ namespace BotClean.Commands
         private readonly IFileManager _fileManager;
         private List<string> _banList;
         private ChromeDriver _driver;
+        private ObservableCollection<IPost> _posts;
 
-        public CleanThreadCommand(List<string> banList, IFileManager fileManager, ChromeDriver driver)
+        public CleanThreadCommand(List<string> banList, IFileManager fileManager, ObservableCollection<IPost> posts)
         {
             _banList = banList ?? throw new ArgumentNullException(nameof(banList));
             _fileManager = fileManager ?? throw new ArgumentNullException(nameof(fileManager));
-            _driver = driver ?? throw new ArgumentNullException(nameof(driver));
+            _posts = posts ?? throw new ArgumentNullException(nameof(posts));
         }
 
         public override void Execute(object parameter)
         {
-            //var usernameField = driver.FindElementById("username");
-            //if(usernameField == null) return;
-            //usernameField.SendKeys("dannyjaye");
+            var directoryInfo = Directory.GetParent(Environment.CurrentDirectory).Parent;
+            if (directoryInfo == null) return;
+            var driverDir = new DirectoryInfo(Path.Combine(directoryInfo.FullName, "ChromeDriver"));
 
-            //var passwordDiv = driver.FindElementById("password");
-            //var passwordBox = passwordDiv.FindElement(By.ClassName("text"));
-            //if(passwordBox == null) return;
-            //passwordBox.SendKeys("orange00");
+            _driver = new ChromeDriver(driverDir.FullName) { Url = "https://www.hearthpwn.com/" };
 
-            //var loginButton = driver.FindElementByClassName("js-login-button");
-            //if(loginButton == null) return;
-            //loginButton.Click();
+            var cookieAccept = _driver.FindElements(By.XPath("//*[text()='ACCEPT']"));
+            cookieAccept.FirstOrDefault()?.Click();
 
             _driver.Navigate().GoToUrl($"https://www.hearthpwn.com/forums/hearthstone-general/players-and-teams-discussion/214403-80g-quest-trading-play-a-friend-7");
 
@@ -55,37 +50,33 @@ namespace BotClean.Commands
 
                 for (var i = 0; i < pages; i++)
                 {
-                    var posts = _driver.FindElementsByClassName("p-comment-wrapper").ToList();
+                    var posts = _driver.FindElementsByClassName("p-comment-post").ToList();
                     foreach (var post in posts)
                     {
-                        _driver.ExecuteScript("arguments[0].scrollIntoView();", post);
-                        var postText = post.Text.ToLower();
-                        foreach (var name in _banList)
+                        var postNumberElement = post.FindElement(By.ClassName("j-comment-link"));
+                        var postNumber = postNumberElement.Text.Remove(0, 1);
+                        _driver.ExecuteScript("arguments[0].scrollIntoView();", postNumberElement);
+                        var postTextElement = post.FindElement(By.ClassName("p-comment-wrapper"));
+                        _driver.ExecuteScript("arguments[0].scrollIntoView();", postTextElement);
+                        var postText = postTextElement.Text.ToLower();
+
+                        foreach (var bannedUser in _banList)
                         {
-                            if (postText.Contains(name.ToLower()))
-                            {
-                                // Delete the post
-                                var adminButton = post.FindElement(By.ClassName("p-comment-actionsAdmin"));
-                                if (adminButton == null) continue;
-                                adminButton.Click();
-                                var deleteOption = adminButton.FindElement(By.Id("nav-delete"));
-                                if (deleteOption == null) continue;
-                                deleteOption.Click();
-                                Thread.Sleep(500);
-                                var buttons = _driver.FindElementsByTagName("button").ToList();
-                                foreach (var webElement in buttons)
-                                {
-                                    if (webElement.Text == "Delete")
-                                    {
-                                        webElement.Click();
-                                        break;
-                                    }
-                                }
-                            }
+                            if (!postText.Contains(bannedUser.ToLower())) continue;
+
+                            var nameElement = post.FindElement(By.ClassName("p-comment-username"));
+                            _driver.ExecuteScript("arguments[0].scrollIntoView();", nameElement);
+                            var name = nameElement.Text;
+
+                            var nameLink = $@"http://www.hearthpwn.com/members/{name}";
+                            var postLink = $@"http://www.hearthpwn.com/forums/hearthstone-general/players-and-teams-discussion/214403-80g-quest-trading-play-a-friend-7?comment={postNumber}";
+
+                            var newComment = new Post(name,nameLink, postText, postLink);
+                            _posts.Add(newComment);
                         }
                     }
 
-                    if (pages <= 1) continue;
+                    if (pages <= 1 || i == pages - 1) continue;
                     // Next page
                     lastPage = (int.Parse(lastPage) - 1).ToString();
                     _driver.Navigate()
@@ -96,6 +87,8 @@ namespace BotClean.Commands
             {
                 Console.WriteLine(e);
             }
+            _driver.Close();
+            _driver.Dispose();
         }
 
         private void RetrieveBanListFromFile()

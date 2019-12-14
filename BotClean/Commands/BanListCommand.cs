@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using BotClean.ViewModel;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
@@ -9,20 +11,32 @@ namespace BotClean.Commands
     public class BanListCommand : CommandBase
     {
         private readonly List<string> _banList;
-        private IFileManager _fileManager;
+        private readonly IFileManager _fileManager;
         private ChromeDriver _driver;
 
-        public BanListCommand(List<string> banList, IFileManager fileManager, ChromeDriver driver)
+        public BanListCommand(List<string> banList, IFileManager fileManager)
         {
             _banList = banList ?? throw new ArgumentNullException(nameof(banList));
             _fileManager = fileManager ?? throw new ArgumentNullException(nameof(fileManager));
-            _driver = driver ?? throw new ArgumentNullException(nameof(driver));
         }
 
         public override void Execute(object parameter)
         {
+            var directoryInfo = Directory.GetParent(Environment.CurrentDirectory).Parent;
+            if (directoryInfo == null) return;
+            var driverDir = new DirectoryInfo(Path.Combine(directoryInfo.FullName, "ChromeDriver"));
+
+            _driver = new ChromeDriver(driverDir.FullName) { Url = "https://www.hearthpwn.com/" };
+
+            var cookieAccept = _driver.FindElements(By.XPath("//*[text()='ACCEPT']"));
+            cookieAccept.FirstOrDefault()?.Click();
+
             _driver.Navigate().GoToUrl($"https://www.hearthpwn.com/forums/hearthstone-general/players-and-teams-discussion/214403-80g-quest-trading-play-a-friend-7");
+
             PopulateBanList(_driver);
+
+            _driver.Close();
+            _driver.Dispose();
 
             _fileManager.SaveToFile(_banList);
         }

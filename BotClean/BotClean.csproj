@@ -95,7 +95,9 @@
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="ViewModel\FileManager.cs" />
     <Compile Include="ViewModel\IFileManager.cs" />
+    <Compile Include="ViewModel\IPost.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
+    <Compile Include="ViewModel\Post.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />
     <Compile Include="View\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>

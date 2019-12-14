@@ -35,3 +35,4 @@ G:\Hearthstone\BOT_CLEAN\BotClean\obj\Release\BotClean.csproj.CoreCompileInputs.
 G:\Hearthstone\BOT_CLEAN\BotClean\obj\Release\BotClean.csproj.CopyComplete
 G:\Hearthstone\BOT_CLEAN\BotClean\obj\Release\BotClean.exe
 G:\Hearthstone\BOT_CLEAN\BotClean\obj\Release\BotClean.pdb
+G:\Hearthstone\BOT_CLEAN\BotClean\obj\Release\BotClean.csprojAssemblyReference.cache
