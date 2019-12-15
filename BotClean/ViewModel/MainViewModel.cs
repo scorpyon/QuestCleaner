@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Diagnostics;
-using System.IO;
-using System.Linq;
 using System.Windows.Input;
 using BotClean.Commands;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
 
 namespace BotClean.ViewModel
 {
@@ -16,7 +10,6 @@ namespace BotClean.ViewModel
         public List<string> BanList { get; set; }
         private ICommand _cleanThreadCommand;
         private ICommand _banListCommand;
-        private ICommand _launchBrowser;
         public ObservableCollection<IPost> Posts { get; set; }
 
         public IFileManager FileManager => new FileManager();

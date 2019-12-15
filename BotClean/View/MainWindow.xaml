@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="Quest Thread Helper v2.0" Height="340" Width="Auto"
+        Title="Quest Thread Helper v2.0" Height="340" Width="1200"
         MinHeight="340" MinWidth="740"
         xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
@@ -20,6 +20,13 @@
         d:DataContext="{d:DesignInstance model:MainViewModel}"
         ShowMinButton="False"
         ShowMaxRestoreButton="False">
+    
+    <Window.Resources>
+        <ContextMenu x:Key="ContextMenuItems">
+            <MenuItem Header="Remove" Click="Delete"/>
+        </ContextMenu>
+    </Window.Resources>
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -30,13 +37,13 @@
         <TextBlock Grid.Row="0" Text="To check the quest thread, first generate a ban list with the Populate Ban List button. Then set the number of pages (from the end) to search and hit the Search Thread button." Margin="8" HorizontalAlignment="Center" TextWrapping="WrapWithOverflow"/>
         <UniformGrid Grid.Row="2"  Columns="3">
             <Button Height="35" HorizontalAlignment="Right" Content="Populate Ban List" Command="{Binding BanListCommand}" MinWidth="160"/>
-            <UniformGrid Grid.Row="1" Columns="2" Margin="8">
+            <UniformGrid Columns="2" Margin="8">
                 <TextBlock Text="Pages to search:" Margin="8" HorizontalAlignment="Right"/>
                 <TextBox Name="PageCount" Margin="8,4,0,0" VerticalAlignment="Top" Height="Auto" Text="1"/>
             </UniformGrid>
             <Button Height="35" HorizontalAlignment="Left" Content="Search Thread" Command="{Binding CleanThreadCommand}" CommandParameter="{Binding ElementName=PageCount, Path=Text}" MinWidth="160"/>
         </UniformGrid>
-        <DataGrid Grid.Row="3" ItemsSource="{Binding Posts}" AutoGenerateColumns="False" MouseLeftButtonUp="DataGrid_MouseLeftButtonUp">
+        <DataGrid Grid.Row="3" ItemsSource="{Binding Posts}" AutoGenerateColumns="False" MouseLeftButtonUp="DataGrid_MouseLeftButtonUp" MouseRightButtonUp="OpenContextMenu">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Username" Binding="{Binding Name, Mode=OneWay}" MaxWidth="150" FontWeight="Bold"/>
                 <DataGridTextColumn Header="User Link" Binding="{Binding NameLink, Mode=OneWay}" MaxWidth="400" FontWeight="Light" Foreground="Aqua"/>
